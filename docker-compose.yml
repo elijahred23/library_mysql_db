@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mysql:
     image: mysql:latest
-    container_name: library_db
+    container_name: library_db_mysql
     restart: unless-stopped
     hostname: library_db
     environment:
