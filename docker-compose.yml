@@ -5,6 +5,7 @@ services:
     image: mysql:latest
     container_name: library_db
     restart: unless-stopped
+    hostname: library_db
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: library_db
@@ -16,6 +17,14 @@ services:
     networks:
       - library_network
 
+  library_api:
+    build: ./library-api
+    ports:
+      - "3005:3005"
+    depends_on:
+      - mysql
+    networks:
+      - library_network
 networks:
   library_network:
     driver: bridge
