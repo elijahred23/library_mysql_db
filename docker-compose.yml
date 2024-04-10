@@ -14,6 +14,8 @@ services:
     volumes:
       - ./initdb:/docker-entrypoint-initdb.d  # Mount SQL scripts
       - mysql_data:/var/lib/mysql   # Mount a volume to persist MySQL data
+      - ./library-api:/usr/src/app  # Mount your code directory
+      - library-api-code:/var/www/html  # Mount the volume to a directory within the container (optional)
     networks:
       - library_network
 
@@ -31,3 +33,4 @@ networks:
 
 volumes:
   mysql_data:  # Define a named volume for MySQL data persistence
+  library-api-code:  # New volume definition for your code
