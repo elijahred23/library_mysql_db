@@ -20,7 +20,7 @@ services:
   library_api:
     build: ./library-api
     ports:
-      - "3005:3005"
+      - "3009:3009"
     depends_on:
       - mysql
     networks:
