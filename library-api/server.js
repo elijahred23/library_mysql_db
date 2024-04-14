@@ -5,6 +5,12 @@ const app = express();
 
 const port = 3009;
 
+app.use((req,res,next)=>{
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET','POST','PUT','DELETE');
+    res.header('Access-Control-Allow-Headers', 'Contenty-Type');
+    next();
+});
 app.get('/', (req,res)=>{
     res.send('Welcome to the library_db API.')
 })
